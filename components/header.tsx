@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 
-function Header() {
+const Header = () => {
   return (
     <header className="flex
       justify-between
@@ -43,6 +43,6 @@ function Header() {
       </div>
     </header>
   )
-}
+};
 
 export default Header;

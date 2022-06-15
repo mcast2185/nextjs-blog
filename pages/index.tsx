@@ -8,7 +8,8 @@ import {Post} from "../typings";
 
 interface Props {
   posts: [Post]
-}
+};
+
 
 const Home = ({posts}: Props) => {
   return (
@@ -36,8 +37,8 @@ const Home = ({posts}: Props) => {
             is a place to write, read and connect
           </h1>
           <h2>
-            It's easy and free to post your thinking on any topic and 
-            connect with millions of readers
+            Easy to write, comment, and explore content here at deity. 
+            Come join, and be heard.
           </h2>
         </div>
         <img className='hidden 
@@ -58,11 +59,14 @@ const Home = ({posts}: Props) => {
                 object-cover group-hover:scale-105
                 transition-transform duration-200
                 ease-in-out' 
-                src={urlFor(post.mainImage).url()} alt="" />
+                src={urlFor(post.mainImage).url()} 
+                alt=""/>
               <div className='flex justify-between
                 p-5 bg-white'>
                 <div>
-                  <p className='text-lg font-bold'>{post.title}</p>
+                  <p className='text-lg font-bold'>
+                    {post.title}
+                  </p>
                   <p className='text-xs'>
                     {post.description} by {post.author.name}
                   </p>
@@ -77,7 +81,7 @@ const Home = ({posts}: Props) => {
       </div>
     </div>
   )
-}
+};
 
 export const getServerSideProps = async () => {
   const query = `*[_type == "post"]{
@@ -91,14 +95,14 @@ export const getServerSideProps = async () => {
     mainImage,
     slug
   }`;
-
-  const posts = await sanityClient.fetch(query)
+  const posts = await sanityClient.fetch(query);
 
   return {
     props: {
       posts
     }
   }
-} 
+}; 
 
-export default Home
+
+export default Home;
